@@ -2,9 +2,11 @@
 	<div
 		id="app"
 		:class="
-			typeof weather.main != 'undefined' && weather.main.temp > 16
+			typeof weather.main == 'undefined'
+				? ''
+				: weather.main.temp > 16
 				? 'warm'
-				: ''
+				: 'cold'
 		"
 	>
 		<main>
@@ -36,8 +38,6 @@
 </template>
 
 <script>
-/* Photo by <a href="https://unsplash.com/@aaronburden?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Aaron Burden</a> on <a href="https://unsplash.com/photos/focus-photo-of-round-clear-glass-bowl-RgTI2KaQ5N4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> */
-/* Photo by <a href="https://unsplash.com/@kylethacker?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Kyle Thacker</a> on <a href="https://unsplash.com/photos/green-trees-during-golden-hour-9ric71H9ulk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> */
 export default {
 	name: "App",
 	data() {
@@ -94,7 +94,7 @@ export default {
 			let month = months[d.getMonth()];
 			let year = d.getFullYear();
 
-			return `${day} ${date} ${month} ${year}`;
+			return `${day}, ${date} ${month} ${year}`;
 		},
 	},
 };
@@ -108,18 +108,23 @@ export default {
 }
 
 body {
-	font-family: "montserrat", sans-serif;
+	font-family: "Exo", sans-serif;
 }
 
 #app {
-	background-image: url(./assets/cold-bg.jpg);
-	background-size: cover;
-	background-position: bottom;
-	transition: 0.4s;
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background: #627e75;
+	overflow: hidden;
 }
 
 #app.warm {
-	background-image: url("./assets/warm-bg.jpg");
+	background: #e9c429;
+}
+
+#app.cold {
+	background: #226ba3;
 }
 
 main {
@@ -150,14 +155,14 @@ main {
 	outline: none;
 	background: none;
 
-	box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
 	background-color: rgba(255, 255, 255, 0.5);
 	border-radius: 16px;
 	transition: 0.4s;
 }
 
 .search-box .search-bar:focus {
-	box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
 	background-color: rgba(255, 255, 255, 0.75);
 }
 
@@ -166,7 +171,7 @@ main {
 	font-size: 32px;
 	font-weight: 500;
 	text-align: center;
-	text-shadow: 1px 3px rgba(0, 0, 0, 0.25);
+	text-shadow: 0px 2px rgba(0, 0, 0, 0.25);
 }
 
 .location-box .date {
@@ -188,7 +193,7 @@ main {
 	font-size: 102px;
 	font-weight: 900;
 
-	text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
+	text-shadow: 0px 2px rgba(0, 0, 0, 0.25);
 	margin: 30px 0px;
 }
 
@@ -197,6 +202,6 @@ main {
 	font-size: 48px;
 	font-weight: 700;
 	font-style: italic;
-	text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
+	text-shadow: 0px 2px rgba(0, 0, 0, 0.25);
 }
 </style>
