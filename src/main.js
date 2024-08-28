@@ -1,4 +1,20 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp, h } from "vue";
+import { createStore } from "vuex";
+import App from "./App.vue";
 
-createApp(App).mount('#app')
+const store = createStore({
+	state() {
+		return {
+			URL_BASE: "https://api.openweathermap.org/data/2.5/",
+		};
+	},
+	mutations: {},
+});
+
+const app = createApp({
+	render: () => h(App),
+});
+
+app.use(store);
+
+app.mount("#app");
