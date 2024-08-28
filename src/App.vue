@@ -121,12 +121,12 @@ body {
 
 #app.warm {
 	background: #e9c429;
-	transition: 0.4s;
+	transition: 0.5s;
 }
 
 #app.cold {
 	background: #226ba3;
-	transition: 0.4s;
+	transition: 0.5s;
 }
 
 main {
