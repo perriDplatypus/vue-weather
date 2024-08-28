@@ -42,14 +42,12 @@ export default {
 	name: "App",
 	data() {
 		return {
+			// for API key, import from .env file
 			api_key: process.env.VUE_APP_API_KEY,
 			url_base: this.$store.state.URL_BASE,
 			query: "",
 			weather: {},
 		};
-	},
-	mounted() {
-		console.log(process.env);
 	},
 	methods: {
 		fetchWeather(e) {
