@@ -1,24 +1,5 @@
 # vue-weather
 
-## Project setup
-```
-npm install
-```
+Created for practice from a youtube tutorial seen [here](https://www.youtube.com/watch?v=JLc-hWsPTUY).
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Modified later with Vuex store and updated logic.
